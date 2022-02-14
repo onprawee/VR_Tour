@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.css"
+    />
+
+    <title>VR Tour</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Visible range / Lock บนล่าง
+    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.5.1/dist/plugins/visible-range.js"></script> -->
+
+    <style>
+      body {
+        text-align: center;
+      }
+      img {
+        width: 350px;
+        height: 200px;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <div id="text1" style="display: none" class="text-center">
+      <h2>ต้นสักสายรหัส</h2>
+      <img src="Img/img1.jpg" />
+      <br /><br />
+      <h5><a class="text-white stretched-link" href="#"> ต้นสักสายรหัส</a></h5>
+    </div>
+    <div id="text2" style="display: none">
+      <h2>สปอร์ตคอมเพล็ก</h2>
+      <img src="Img/img2.jpg" />
+      <br /><br />
+      <h5>
+        <a class="text-white stretched-link" href="sportcomplex.html"
+          >สปอร์ตคอมเพล็ก</a
+        >
+      </h5>
+    </div>
+    <div id="text3" style="display: none">
+      <h2>สนามเปตอง</h2>
+      <img src="Img/img3.jpg" />
+      <br /><br />
+      <h5><a class="text-white stretched-link" href="petanque.html">สนามเปตอง</a></h5>
+    </div>
+    <div id="text4" style="display: none">
+      <h2>แปลงเกษตร</h2>
+      <img src="Img/img4.jpg" />
+      <br /><br />
+      <h5><a class="text-white stretched-link" href="#">แปลงเกษตร</a></h5>
+    </div>
+    <!-- น่าจะต้องเปลี่ยนรูปของสนาม เพราะมันบีบไป  -->
+    <div id="text5" style="display: none" class="text-center">
+      <h2>สนามฮอกกี้</h2>
+      <img src="Img/img5.jpg" />
+      <br /><br />
+      <h5><p>สนามฮอกกี้</p></h5>
+      <p>ใช้เป็นประตู</p>
+    </div>
+
+    <div id="viewer" style="width: 100vw; height: 100vh"></div>
+    <script>
+      var viewer = new PhotoSphereViewer.Viewer({
+        container: document.querySelector("#viewer"),
+        panorama: "img/pano.jpg",
+        plugins: [
+          [
+            PhotoSphereViewer.MarkersPlugin,
+            {
+              markers: [
+                {
+                  id: "marker-6nkdpzoj9l2",
+                  image:
+                    "https://photo-sphere-viewer.js.org/assets/pin-red.png",
+                  longitude: 1.704,
+                  latitude: 0.098,
+                  width: 32,
+                  height: 32,
+                  tooltip: "ต้นสักสายรหัส",
+                  content: $("#text1").html(),
+                },
+                {
+                  id: "marker-x8ajiv8g7z",
+                  image:
+                    "https://photo-sphere-viewer.js.org/assets/pin-red.png",
+                  longitude: 4.896,
+                  latitude: 0.151,
+                  width: 32,
+                  height: 32,
+                  tooltip: "สปอร์ตคอมเพล็ก",
+                  content: $("#text2").html(),
+                },
+                {
+                  id: "marker-8sm8zzizggs",
+                  image:
+                    "https://photo-sphere-viewer.js.org/assets/pin-red.png",
+                  longitude: 2.943,
+                  latitude: 0.043,
+                  width: 32,
+                  height: 32,
+                  tooltip: "สนามเปตอง",
+                  content: $("#text3").html(),
+                },
+                {
+                  id: "marker-ir0gks170s",
+                  image:
+                    "https://photo-sphere-viewer.js.org/assets/pin-red.png",
+                  longitude: 0.914,
+                  latitude: 0.025,
+                  width: 32,
+                  height: 32,
+                  tooltip: "แปลงเกษตร",
+                  content: $("#text4").html(),
+                },
+                {
+                  id: "marker-hu5qeludym",
+                  image:
+                    "https://photo-sphere-viewer.js.org/assets/pin-red.png",
+                  longitude: 5.92,
+                  latitude: -0.016,
+                  width: 32,
+                  height: 32,
+                  tooltip: "สนามฮอกกี้",
+                  content: $("#text5").html(),
+                },
+              ],
+            },
+          ],
+          //Lock ไม่ให้เลื่อนบนล่าง
+          // [
+          //   PhotoSphereViewer.VisibleRangePlugin,
+          //   {
+          //     latitudeRange: [-Math.PI / 3, Math.PI / 3],
+          //   },
+          //],
+        ],
+      });
+      // var visibleRangePlugin = viewer.getPlugin(
+      //   PhotoSphereViewer.VisibleRangePlugin
+      // );
+    </script>
+  </body>
+</html>
