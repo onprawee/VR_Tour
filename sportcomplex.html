@@ -12,13 +12,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.css" />
 
-    <title>VR Tour - Sprot Complex  </title>
+    <title>VR Tour - Sprot Complex </title>
 
     <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    
+    <!-- Visible range / Lock บนล่าง-->
+    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.5.1/dist/plugins/visible-range.js"></script>
 
     <style>
         body {
@@ -36,35 +39,38 @@
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
 
     <div id="text1" style="display: none" class="text-center">
-      <h2>อาคารพลศึกษาอเนกประสงค์</h2>
-      <img src="Img/img7.jpg" />
-      <br /><br />
+        <h2>อาคารพลศึกษาอเนกประสงค์</h2>
+        <img src="Img/img7.jpg" />
+        <br /><br />
     </div>
-     <div id="text2" style="display: none">
-      <h2>ลานสเก็ต</h2>
-      <img src="Img/img6.jpg" />
-      <br /><br />
+    <div id="text2" style="display: none">
+        <h2>ลานสเก็ต</h2>
+        <img src="Img/img6.jpg" />
+        <br /><br />
     </div>
     <div id="text3" style="display: none">
-      <h2>สนามฮอกกี้</h2>
-      <img src="Img/img5.jpg" />
-      <br /><br />
-      <h5><a class="text-white stretched-link" href="index.html">สนามฮอกกี้</a></h5>
+        <h2>สนามฮอกกี้</h2>
+        <img src="Img/img5.jpg" />
+        <br /><br />
+        <h5><a class="text-white stretched-link" href="index.html">สนามฮอกกี้</a></h5>
     </div>
     <div id="text4" style="display: none">
-      <h2>สนามเปตอง/h2>
-      <img src="Img/img3.jpg" />
-      <br /><br />
-      <h5><a class="text-white stretched-link" href="#">แปลงเกษตร</a></h5>
+        <h2>สนามเปตอง</h2>
+        <img src="Img/img3.jpg" />
+        <br /><br />
+        <h5><a class="text-white stretched-link" href="petanque.html">สนามเปตอง</a></h5>
     </div>
     <div id="text5" style="display: none" class="text-center">
-      <h2>สนามรักบี้ฟุตบอล & สนามฟุตบอล 2</h2>
-      <img src="Img/img8.jpg" />
-      <br /><br />
-      <h5><p>สนามรักบี้ฟุตบอล</p></h5>
+        <h2>สนามรักบี้ฟุตบอล & สนามฟุตบอล 2</h2>
+        <img src="Img/img8.jpg" />
+        <br /><br />
+        <h5>
+            <p>สนามรักบี้ฟุตบอล</p>
+        </h5>
     </div>
 
     <div id="viewer" style="width: 100vw; height: 100vh"></div>
@@ -72,23 +78,12 @@
         var viewer = new PhotoSphereViewer.Viewer({
             container: document.querySelector("#viewer"),
             panorama: "img/pano_sport.jpg",
-            defaultLong: 3.50,
-            defaultLat: -0.30,
+            defaultLong: 5.153,
+            defaultLat: 0.10,
             minFov: 0,
-            maxFov: 90,
+            maxFov: 40,
             defaultZoomLvl: 0,
-            panoData: {
-                fullWidth: 2000, //ขนาดเต็มของพื้นที่แสดงภาพ
-                fullHeight: 2800,
-                croppedWidth: 2048,
-                croppedHeight: 1400,   //ขนาดสูงจริงไฟล์ภาพ (pixel)
-                croppedX: 0,
-                croppedY: (2048 - 265) / 2,
-                poseHeading: 0, // 0 to 360
-                posePitch: 0, // -90 to 90
-                poseRoll: 0, // -180 to 180
 
-            },
             plugins: [
                 [
                     PhotoSphereViewer.MarkersPlugin,
@@ -98,7 +93,7 @@
                                 id: "marker-1",
                                 image:
                                     "https://photo-sphere-viewer.js.org/assets/pin-red.png",
-                                longitude: 3.842,
+                                longitude: 5.542,
                                 latitude: 0.129,
                                 width: 32,
                                 height: 32,
@@ -109,8 +104,8 @@
                                 id: "marker-2",
                                 image:
                                     "https://photo-sphere-viewer.js.org/assets/pin-red.png",
-                                longitude: 3,
-                                latitude: -0.5,
+                                longitude: 4.825,
+                                latitude: -0.1,
                                 width: 32,
                                 height: 32,
                                 tooltip: "ลานสเก็ต",
@@ -120,8 +115,8 @@
                                 id: "marker-3",
                                 image:
                                     "https://photo-sphere-viewer.js.org/assets/pin-red.png",
-                                longitude: 0.3,
-                                latitude: -0.250,
+                                longitude: 1.834,
+                                latitude: 0.013,
                                 width: 32,
                                 height: 32,
                                 tooltip: "สนามฮอกกี้",
@@ -131,8 +126,8 @@
                                 id: "marker-4",
                                 image:
                                     "https://photo-sphere-viewer.js.org/assets/pin-red.png",
-                                longitude: 0.9,
-                                latitude: -0.250,
+                                longitude: 2.154,
+                                latitude: 0.013,
                                 width: 32,
                                 height: 32,
                                 tooltip: "สนามเปตอง",
@@ -142,8 +137,8 @@
                                 id: "marker-5",
                                 image:
                                     "https://photo-sphere-viewer.js.org/assets/pin-red.png",
-                                longitude: 4.748,
-                                latitude: -0.250,
+                                longitude: 6.05,
+                                latitude: 0.03,
                                 width: 32,
                                 height: 32,
                                 tooltip: "สนามรักบี้ฟุตบอล & สนามฟุตบอล 2 ",
@@ -152,8 +147,19 @@
                         ],
                     },
                 ],
+
+                [
+                PhotoSphereViewer.VisibleRangePlugin,
+            {
+              //ปรับเลขที่หาร อันแรกจะเป็นด้านล่าง อันที่สองเป็นด้านบน
+              latitudeRange: [-Math.PI / 10, Math.PI / 9],
+            },
+          ],
             ],
         });
+        var visibleRangePlugin = viewer.getPlugin(
+            PhotoSphereViewer.VisibleRangePlugin
+        );
     </script>
 </body>
 
