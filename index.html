@@ -29,9 +29,6 @@
     <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-    <!-- Visible range / Lock บนล่าง
-    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.5.1/dist/plugins/visible-range.js"></script> -->
-
     <style>
       body {
         text-align: center;
@@ -40,6 +37,29 @@
         width: 350px;
         height: 200px;
         align-items: center;
+      }
+
+      .btn-grad {
+        background-image: linear-gradient(
+          to right,
+          #f1f2b5 0%,
+          #135058 51%,
+          #f1f2b5 100%
+        );
+      }
+      .btn-grad {
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+      }
+      .btn-grad:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
       }
     </style>
   </head>
@@ -55,14 +75,19 @@
       <h2>ต้นสักสายรหัส</h2>
       <img src="Img/img1.jpg" />
       <br /><br />
-      <h5><a class="text-white stretched-link" href="teaktree.html"> ต้นสักสายรหัส</a></h5>
+      <h5>
+        <a class="btn btn-rounded btn-grad" href="teaktree.html">
+          ต้นสักสายรหัส</a
+        >
+      </h5>
     </div>
+
     <div id="text2" style="display: none">
       <h2>สปอร์ตคอมเพล็ก</h2>
       <img src="Img/img2.jpg" />
       <br /><br />
       <h5>
-        <a class="text-white stretched-link" href="sportcomplex.html"
+        <a  class="btn btn-rounded btn-grad" href="sportcomplex.html"
           >สปอร์ตคอมเพล็ก</a
         >
       </h5>
@@ -71,13 +96,19 @@
       <h2>สนามเปตอง</h2>
       <img src="Img/img3.jpg" />
       <br /><br />
-      <h5><a class="text-white stretched-link" href="petanque.html">สนามเปตอง</a></h5>
+      <h5>
+        <a  class="btn btn-rounded btn-grad" href="petanque.html">สนามเปตอง</a>
+      </h5>
     </div>
     <div id="text4" style="display: none">
       <h2>แปลงเกษตร</h2>
       <img src="Img/img4.jpg" />
       <br /><br />
-      <h5><a class="text-white stretched-link" href="agriculture.html">แปลงเกษตร</a></h5>
+      <h5>
+        <a  class="btn btn-rounded btn-grad" href="agriculture.html"
+          >แปลงเกษตร</a
+        >
+      </h5>
     </div>
     <!-- น่าจะต้องเปลี่ยนรูปของสนาม เพราะมันบีบไป  -->
     <div id="text5" style="display: none" class="text-center">
@@ -156,18 +187,8 @@
               ],
             },
           ],
-          //Lock ไม่ให้เลื่อนบนล่าง
-          // [
-          //   PhotoSphereViewer.VisibleRangePlugin,
-          //   {
-          //     latitudeRange: [-Math.PI / 3, Math.PI / 3],
-          //   },
-          //],
         ],
       });
-      // var visibleRangePlugin = viewer.getPlugin(
-      //   PhotoSphereViewer.VisibleRangePlugin
-      // );
     </script>
   </body>
 </html>
